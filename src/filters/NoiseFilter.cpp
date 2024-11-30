@@ -576,7 +576,16 @@ void NoiseFilter::filter_tail2(
             noiseCount ++;
         }
     }
-    printf("Noise count %lu\n", noiseCount);
+  
+
+    if (m_strategy == FS_TailWeek)
+    {
+        f_tailsoft_count = noiseCount;
+    }
+    else if (m_strategy == FS_TailStrong2)
+    {
+      f_tailhard_count= noiseCount;
+    }
 }
 
 void NoiseFilter::setStrategy(int value)

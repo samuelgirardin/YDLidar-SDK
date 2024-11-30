@@ -793,6 +793,9 @@ inline int ConvertLidarToUserSmaple(int model, int rate)
   }
   else
   {
+
+printf("[SAMSAMSA dans le else]") ;
+
     switch (rate)
     {
     case DriverInterface::YDLIDAR_RATE_4K:

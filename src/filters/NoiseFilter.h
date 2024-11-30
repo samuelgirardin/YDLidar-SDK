@@ -35,6 +35,11 @@ public:
     std::string version() const;
     void setStrategy(int value) override;
 
+    size_t f_noise_count = 0;
+    size_t f_tail_count = 0;
+    size_t f_tailsoft_count = 0;
+    size_t f_tailhard_count = 0;
+
 protected:
     void filter_noise(const LaserScan &in,
                       int lidarType,

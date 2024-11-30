@@ -203,8 +203,7 @@ int main(int argc, char *argv[])
   /// ignore array
   std::string ignore_array;
   ignore_array.clear();
-  laser.setlidaropt(LidarPropIgnoreArray, ignore_array.c_str(),
-                    ignore_array.size());
+  laser.setlidaropt(LidarPropIgnoreArray, ignore_array.c_str(), ignore_array.size());
 
   //////////////////////int property/////////////////
   /// lidar baudrate
