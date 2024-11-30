@@ -214,14 +214,17 @@ void NoiseFilter::filter_noise(
         lastAngle = current_angle;//last angle
         lastRange = current_range;//last range
     }
-
+       size_t noiseCount = 0 ; 
     //mark all masked points as invalid in scan
     for (unsigned int i = 0; i < in.points.size(); i++) {
         if (maskedPoints[i]) {
             //as we don't have a better error this is an other range error for now
             out.points[i].range = 0.0;
+            noiseCount++ ;
         }
     }
+
+    f_noise_count = noiseCount ; 
 }
 
 void NoiseFilter::filter(
@@ -414,14 +417,17 @@ void NoiseFilter::filter_tail(
       }
     }
   }*/
-
+    size_t noiseCount = 0;
     //mark all masked points as invalid in scan
     for (unsigned int i = 0; i < in.points.size(); i++) {
         if (maskedPoints[i]) {
             //as we don't have a better error this is an other range error for now
             out.points[i].range = 0.0;
+            noiseCount++ ; 
         }
     }
+
+    f_tail_count = noiseCount ;
 
     //  for (int i = 0; i < m_block_vct.size(); i++) {
     ////    if (m_block_vct[i].end_index - m_block_vct[i].start_index > 3 *
@@ -586,6 +592,8 @@ void NoiseFilter::filter_tail2(
     {
       f_tailhard_count= noiseCount;
     }
+
+   
 }
 
 void NoiseFilter::setStrategy(int value)
